@@ -1,3 +1,10 @@
+import requests
+import colorama
+import random
+from colorama import Fore
+
+
+
 WORDS = ["apotheosizing","bonspiel","deaired","sautoir","spiritedly","naturalizes","kevels","pere","thematically","cory","unwarier","outjumps","thralls",
          "selvages","fere","subtask","finca","hegiras","cresol","shtetl","deflector","checkerboard","anticlines","bibliomaniacal","retinal","empressements",
          "salutatorian","humidity","arrears","jammiest","typists","paesanos","corders","hemosiderins","rewetting","resinating","beachwear","beslimed","produce",
@@ -27,3 +34,24 @@ WORDS = ["apotheosizing","bonspiel","deaired","sautoir","spiritedly","naturalize
          "scotopia","readjust","inwardness","astounds","tieback","fadeaways","snooted","turnstone","ghost","expellers",
          "overhope","donorships","boffo","scarify","flockier","subzones","predacious","excessiveness","glost","imputably",
          "flypaper","salesroom","applaudable","tableless","accept","floccose","slimpsiest","annunciated","angled","hilar","octonaries","kists"]
+
+def get_word_from_api():
+
+    try:
+        url="https://random-word-api.herokuapp.com/word" 
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        word=data[0]
+        return word
+    except requests.exceptions.RequestException as e:
+        print(Fore.RED+f"Error: {e}")
+        return None
+
+def get_random_word():
+    word=get_word_from_api()
+    
+    if word is None:
+        return random.choice(WORDS)
+    
+    return word

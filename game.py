@@ -1,41 +1,41 @@
 import requests
-import random
 import colorama
 from colorama import Fore
-from constants import MAX_LIVES, VALID_LETTERS
+from constants import MAX_LIVES
 from words import WORDS
+from words import get_random_word
 colorama.init(autoreset=True)
 
 
 def start_game():
     pass
 
-def get_word_from_api():
-
-    try:
-        url="https://random-word-api.herokuapp.com/word" 
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
-        data = response.json()
-        word=data[0].upper()
-    except requests.exceptions.RequestException as e:
-        print(Fore.RED+f"Error: {e}")
-        return 0
-    return word
-
-def get_random_word():
-    try:
-        word=get_word_from_api()
-    except:
-        word=random.choice(WORDS)
-    word.upper()
-    return word
-
-def display_progress():
-    pass
+def display_progress(feedback_message,guessed_letters):
+        
+        display_word=show_word()
+        lives=MAX_LIVES
+        print("==============================")
+        print(f"Status: {feedback_message}")
+        print("==============================")
+        print("\nWord: ", end="")
+        print(*display_word)
+        print(f"\nLives remaining: {lives}")
+        print(f"Guessed letters: {', '.join(sorted(guessed_letters)) if guessed_letters else 'None'}\n")
+    
 
 def get_guess():
-    pass
+    guessed_letters = set()
+
+    guess = input("Guess a letter :").lower().strip()
+
+    if len(guess) !=1 or not guess.isalpha():
+        feedback_message= "Invalid input! Please enter a single letter."
+    
+    if guess in guessed_letters:
+        feedback_message = f"You already guessed the letter {guess}"
+
+    guessed_letters.add(guess)
+    display_progress(feedback_message,guessed_letters)
 
 def update_game():
     pass
@@ -49,4 +49,5 @@ def check_lose():
 def play_again():
     pass
 
-print(get_random_word())
+display_progress()
+get_guess()
