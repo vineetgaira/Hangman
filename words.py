@@ -49,6 +49,7 @@ def get_word_from_api():
         return None
 
 def get_random_word():
+    
     word=get_word_from_api()
     
     if word is None:
