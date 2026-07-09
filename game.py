@@ -1,4 +1,3 @@
-import requests
 import colorama
 from colorama import Fore
 from constants import MAX_LIVES
