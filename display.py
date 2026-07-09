@@ -1,5 +1,18 @@
-def welcome():
-    pass
+import colorama
+from colorama import Fore, Style
+colorama.init(autoreset=True)
+
+
+def welcome():print(Style.DIM+Fore.BLUE+'''
+     _                                             
+| |                                           
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/                       ''')
+
 
 def show_word():
     pass
@@ -12,3 +25,5 @@ def show_hangman():
 
 def show_result():
     pass
+
+welcome()
