@@ -1,10 +1,7 @@
 
-word="VINEET"
-print("__ "*len(word))
+# import requests
 
-user=input("\nEnter a word:").upper()
+# url="https://random-word-api.herokuapp.com/word" 
 
-for letter1 in user:
-    for letter2 in word:
-        if letter1==letter2:
-            print("success")
+
+
