@@ -1,6 +1,7 @@
 import colorama
 from colorama import Fore, Style
 colorama.init(autoreset=True)
+from game import get_random_word
 
 
 def welcome():print(Style.DIM+Fore.BLUE+r'''
@@ -16,7 +17,12 @@ def welcome():print(Style.DIM+Fore.BLUE+r'''
 
 
 def show_word():
-    pass
+    
+    secret_word = get_random_word()
+
+    show_word = ["____"]*len(secret_word)
+    
+    return show_word
 
 def show_wrong_letters():
     pass
@@ -28,3 +34,4 @@ def show_result():
     pass
 
 welcome()
+print(show_word())

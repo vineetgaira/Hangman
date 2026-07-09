@@ -205,6 +205,8 @@ stage_6 = r"""
   ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║
    ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝
 """
+
+
 HANGMAN_STAGES=[
     stage_0,
     stage_1,
@@ -214,6 +216,3 @@ HANGMAN_STAGES=[
     stage_5,
     stage_6
 ]
-
-enter_stage=int(input("Please enter a stage : "))
-print(Style.DIM+Fore.BLUE+f"{HANGMAN_STAGES[enter_stage]}")
