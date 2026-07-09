@@ -10,7 +10,7 @@ colorama.init(autoreset=True)
 def start_game():
     pass
 
-def display_progress(feedback_message,guessed_letters):
+def display_progress():
     pass    
 
 def get_guess():
