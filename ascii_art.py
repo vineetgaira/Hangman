@@ -216,5 +216,3 @@ HANGMAN_STAGES=[
     stage_5,
     stage_6
 ]
-
-print(HANGMAN_STAGES[0])

@@ -3,6 +3,8 @@ from constants import DIM, BLUE
 from ascii_art import HANGMAN_STAGES
 colorama.init(autoreset=True)
 
+def clear_screen():
+    print("\033[H\033[J", end="")
 
 def welcome():print(DIM+ BLUE+r'''
      _                                             
@@ -48,7 +50,4 @@ def show_result(won, secret_word):
     else:
         print(f"Game Over!\n The word was {secret_word}")
     
-def clear_screen():
-    # \033[H moves cursor to top-left; \033[J clears the screen down from there
-    print("\033[H\033[J", end="")
 

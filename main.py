@@ -37,6 +37,8 @@ def main():
                 game_over=True
                 won = False
         
+        clear_screen()
+        show_hangman(lives)
         show_result(won,secret_word)
         playing= play_again()
 
