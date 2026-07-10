@@ -1,6 +1,7 @@
-
+import colorama
+from colorama import Fore, Style
+colorama.init(autoreset = True)
 from constants import MAX_LIVES
-from words import WORDS
 from words import get_random_word
 
 def start_game():
@@ -14,7 +15,7 @@ def start_game():
 
 def get_guess(guessed_letters):
 
-    guess = input("Guess a letter :").lower().strip()
+    guess = input(Fore.GREEN+"Guess a letter :").lower().strip()
     if len(guess) !=1 or not guess.isalpha():
         return "invalid", guess
     elif guess in guessed_letters:
@@ -43,7 +44,7 @@ def check_lose(lives):
 def play_again():
     
     while True:
-        user_exit = input("Do you wanna play again? y/n :").lower()
+        user_exit = input(Fore.GREEN+"Do you wanna play again? y/n :").lower()
 
         if user_exit=="y":
             return True
