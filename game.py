@@ -4,7 +4,7 @@ from words import WORDS
 from words import get_random_word
 
 def start_game():
-    secret_word = get_random_word
+    secret_word = get_random_word()
 
     guessed_letters = set()
 
@@ -16,24 +16,31 @@ def start_game():
 def get_guess(guessed_letters):
 
     while True:
-
         guess = input("Guess a letter :").lower().strip()
-        
         if len(guess) !=1 or not guess.isalpha():
-            print("Invalid input! Please enter a single letter.")
+            return "invalid", guess
         elif guess in guessed_letters:
-            print(f"The letter {guess} is already guessed.")
+            return "repeat", guess
         else:
-            return guess
+            return "ok", guess
+        
+def update_game(secret_word, guess, guessed_letters, lives):
+    
+    if guess not in guessed_letters:
+        guessed_letters.add(guess)
 
-def update_game():
-   pass
+    if guess not in secret_word:
+        lives-=1
 
-def check_win():
-    pass
+    return guessed_letters,lives
+
+def check_win(secret_word,guessed_letters):
+        
+        return set(secret_word)<= guessed_letters
 
 def check_lose():
-    pass
+    
+
 
 def play_again():
     pass

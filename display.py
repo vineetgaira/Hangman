@@ -29,8 +29,6 @@ def show_word(secret_word, guessed_letters):
 
     return " ".join(word)
     
-
-
 def show_wrong_letters():
     pass
 
