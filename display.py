@@ -27,13 +27,21 @@ def show_word(secret_word, guessed_letters):
         else:
             word.append("_")
 
-    return " ".join(word)
+    print(" ".join(word))
     
-def show_wrong_letters():
-    pass
+def show_wrong_letters(guessed_letters, secret_word):
 
-def show_hangman():
-    pass
+    wrong = []
+
+    for l in guessed_letters:
+        if l not in secret_word:
+            wrong.append(l)
+
+    print(", ".join(wrong))
+
+def show_hangman(lives):
+    
+    print(HANGMAN_STAGES[lives])
 
 def show_result():
     pass
