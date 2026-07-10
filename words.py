@@ -44,8 +44,7 @@ def get_word_from_api():
         data = response.json()
         word=data[0]
         return word
-    except requests.exceptions.RequestException as e:
-        print(Fore.RED+f"Error: {e}")
+    except requests.exceptions.RequestException:
         return None
 
 def get_random_word():
