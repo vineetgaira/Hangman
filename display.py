@@ -1,6 +1,5 @@
 import colorama
 from constants import DIM, BLUE
-from words import get_random_word
 from ascii_art import HANGMAN_STAGES
 colorama.init(autoreset=True)
 
@@ -45,7 +44,7 @@ def show_hangman(lives):
 
 def show_result(won, secret_word):
     if won:
-        print(f"Congrulations!\nYou Win!\n The word was {secret_word}")
+        print(f"Congratulations!\nYou Win!\n The word was {secret_word}")
     else:
         print(f"Game Over!\n The word was {secret_word}")
     
