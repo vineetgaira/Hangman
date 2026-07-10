@@ -40,10 +40,12 @@ def show_wrong_letters(guessed_letters, secret_word):
     print(", ".join(wrong))
 
 def show_hangman(lives):
-    
+
     print(HANGMAN_STAGES[lives])
 
-def show_result():
-    pass
-
-welcome()
+def show_result(won, secret_word):
+    if won:
+        print(f"Congrulations!\nYou Win!\n The word was {secret_word}")
+    else:
+        print(f"Game Over!\n The word was {secret_word}")
+    
