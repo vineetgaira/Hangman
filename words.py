@@ -1,7 +1,5 @@
 import requests
-import colorama
 import random
-from colorama import Fore
 
 
 

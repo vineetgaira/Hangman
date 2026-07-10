@@ -1,12 +1,12 @@
 import colorama
-from constants import DIM, BLUE
+from colorama import Fore, Style
 from ascii_art import HANGMAN_STAGES
 colorama.init(autoreset=True)
 
 def clear_screen():
     print("\033[H\033[J", end="")
 
-def welcome():print(DIM+ BLUE+r'''
+def welcome():print(Fore.BLUE+r'''
      _                                             
 | |                                           
 | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
@@ -28,7 +28,7 @@ def show_word(secret_word, guessed_letters):
         else:
             word.append("_")
 
-    print(" ".join(word))
+    print(Style.BRIGHT+Fore.BLUE+" ".join(word))
     
 def show_wrong_letters(guessed_letters, secret_word):
 
@@ -38,16 +38,16 @@ def show_wrong_letters(guessed_letters, secret_word):
         if l not in secret_word:
             wrong.append(l)
 
-    print(", ".join(wrong))
+    print(Fore.RED+", ".join(wrong))
 
 def show_hangman(lives):
 
-    print(HANGMAN_STAGES[lives])
+    print(Fore.BLUE+HANGMAN_STAGES[lives])
 
 def show_result(won, secret_word):
     if won:
-        print(f"Congratulations!\nYou Win!\n The word was {secret_word}")
+        print(Fore.GREEN+f"Congratulations!\nYou Win!\nThe word was {secret_word}")
     else:
-        print(f"Game Over!\n The word was {secret_word}")
+        print(Fore.RED+f"Game Over!\nThe word was {Fore.GREEN+secret_word}")
     
 

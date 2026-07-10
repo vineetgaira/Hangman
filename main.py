@@ -1,3 +1,9 @@
+import colorama
+from colorama import Fore,Style
+colorama.init(autoreset=True)
+
+
+
 from game import start_game, get_guess, update_game, check_win, check_lose, play_again
 from display import welcome, show_word, show_wrong_letters, show_hangman,show_result,clear_screen
 
@@ -24,9 +30,9 @@ def main():
             while status != "ok":
                 status, guess = get_guess(guessed_letters)
                 if status == "invalid":
-                    print("Invalid input! Please enter a single character.")
+                    print(Fore.RED+"Invalid input! Please enter a single character.")
                 elif status == "repeat":
-                    print(f"You have already guessed the letter {guess}")
+                    print(Fore.RED+f"You have already guessed the letter {Fore.CYAN+guess}")
             
             guessed_letters,lives=update_game(secret_word, guess, guessed_letters, lives)
 
@@ -40,7 +46,9 @@ def main():
         clear_screen()
         show_hangman(lives)
         show_result(won,secret_word)
-        playing= play_again()
+        playing=play_again()
+        if not playing:
+            print(Style.BRIGHT+Fore.CYAN+"Thanks for playing....")
 
 if __name__ == "__main__":
     main()
