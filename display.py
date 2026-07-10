@@ -17,14 +17,7 @@ def welcome():print(Style.DIM+Fore.BLUE+r'''
 
 
 def show_word():
-
-    secret_word = get_random_word()
-
-    show_word = ["____"]*len(secret_word)
-
-    display_word="  ".join(show_word)
-    
-    return Fore.BLUE+display_word
+    pass
 
 def show_wrong_letters():
     pass
