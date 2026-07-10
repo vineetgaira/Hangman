@@ -10,20 +10,18 @@ def start_game():
 
     lives = MAX_LIVES
 
-    return secret_word, guessed_letters, lives
-                    
+    return secret_word, guessed_letters, lives                 
 
 def get_guess(guessed_letters):
 
-    while True:
-        guess = input("Guess a letter :").lower().strip()
-        if len(guess) !=1 or not guess.isalpha():
-            return "invalid", guess
-        elif guess in guessed_letters:
-            return "repeat", guess
-        else:
-            return "ok", guess
-        
+    guess = input("Guess a letter :").lower().strip()
+    if len(guess) !=1 or not guess.isalpha():
+        return "invalid", guess
+    elif guess in guessed_letters:
+        return "repeat", guess
+    else:
+        return "ok", guess
+          
 def update_game(secret_word, guess, guessed_letters, lives):
     
     if guess not in guessed_letters:
@@ -38,10 +36,20 @@ def check_win(secret_word,guessed_letters):
         
         return set(secret_word)<= guessed_letters
 
-def check_lose():
+def check_lose(lives):
     
-
+    return lives<=0
 
 def play_again():
-    pass
+    
+    while True:
+        user_exit = input("Do you wanna play again? y/n :").lower()
 
+        if user_exit=="y":
+            return True
+        elif user_exit=="n":
+            return False
+        else:
+            continue
+
+        
