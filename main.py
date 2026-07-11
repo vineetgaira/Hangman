@@ -1,6 +1,4 @@
-import art
-from art import tprint
-import colorama
+
 from colorama import Fore,Style
 colorama.init(autoreset=True)
 
@@ -50,7 +48,7 @@ def main():
         show_result(won,secret_word)
         playing=play_again()
         if not playing:
-            tprint(Style.BRIGHT+Fore.CYAN+"Thanks for playing....سس")
+            print(Style.BRIGHT+Fore.CYAN+"Thanks for playing....سس")
 
 if __name__ == "__main__":
     main()
