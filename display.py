@@ -3,6 +3,7 @@ from colorama import Fore, Style
 from ascii_art import HANGMAN_STAGES
 colorama.init(autoreset=True)
 
+
 def clear_screen():
     print("\033[H\033[J", end="")
 
@@ -46,7 +47,7 @@ def show_hangman(lives):
 
 def show_result(won, secret_word):
     if won:
-        print(Fore.GREEN+f"Congratulations!\nYou Win!\nThe word was {secret_word}")
+        print(Fore.GREEN+f"Congratulations!\nYou Win!\nThe word was {Fore.CYAN+secret_word}")
     else:
         print(Fore.RED+f"Game Over!\nThe word was {Fore.GREEN+secret_word}")
     
